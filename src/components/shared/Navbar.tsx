@@ -10,33 +10,54 @@ export default function Navbar() {
   }
 
   return (
-    <Container>
-      <Logo src='/assets/shared/logo.svg' alt='Photosnap' />
-      <MenuToggler
-        type='button'
-        className={`${menuOpen && "open"}`}
-        onClick={toggleMenu}
-      >
-        <span></span>
-        <span></span>
-      </MenuToggler>
-      <Nav className={`${menuOpen && "open"}`}>
-        {["stories", "features", "pricing"].map(link => (
-          <Link key={link} href={`/${link}`} passHref>
-            <NavLink>{link}</NavLink>
+    <>
+      <Overflow className={`${menuOpen && "open"}`} />
+      <Container>
+        <Logo src='/assets/shared/logo.svg' alt='Photosnap' />
+        <MenuToggler
+          type='button'
+          className={`${menuOpen && "open"}`}
+          onClick={toggleMenu}
+        >
+          <span></span>
+          <span></span>
+        </MenuToggler>
+        <Nav className={`${menuOpen && "open"}`}>
+          {["stories", "features", "pricing"].map(link => (
+            <Link key={link} href={`/${link}`} passHref>
+              <NavLink>{link}</NavLink>
+            </Link>
+          ))}
+          <Divider />
+          <Link href='/' passHref>
+            <InviteLinkMobile>Get an invite</InviteLinkMobile>
           </Link>
-        ))}
-        <Divider />
+        </Nav>
         <Link href='/' passHref>
-          <InviteLinkMobile>Get an invite</InviteLinkMobile>
+          <InviteLinkDesktop>Get an invite</InviteLinkDesktop>
         </Link>
-      </Nav>
-      <Link href='/' passHref>
-        <InviteLinkDesktop>Get an invite</InviteLinkDesktop>
-      </Link>
-    </Container>
+      </Container>
+    </>
   );
 }
+
+const Overflow = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: ${props => props.theme.colors.black};
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s opacity ease-out, visibility ease-out 0.3s;
+
+  &.open {
+    opacity: 0.5;
+    visibility: visible;
+  }
+`;
 
 const Container = styled.header`
   height: 7.2rem;
@@ -46,6 +67,11 @@ const Container = styled.header`
   padding: 0 24px;
   max-width: 1300px;
   margin: auto;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  background: ${props => props.theme.colors.white};
 `;
 
 const Logo = styled.img`
