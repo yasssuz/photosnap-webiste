@@ -13,29 +13,31 @@ export default function Navbar() {
     <>
       <Overflow className={`${menuOpen && "open"}`} />
       <Container>
-        <Logo src='/assets/shared/logo.svg' alt='Photosnap' />
-        <MenuToggler
-          type='button'
-          className={`${menuOpen && "open"}`}
-          onClick={toggleMenu}
-        >
-          <span></span>
-          <span></span>
-        </MenuToggler>
-        <Nav className={`${menuOpen && "open"}`}>
-          {["stories", "features", "pricing"].map(link => (
-            <Link key={link} href={`/${link}`} passHref>
-              <NavLink>{link}</NavLink>
+        <Content>
+          <Logo src='/assets/shared/logo.svg' alt='Photosnap' />
+          <MenuToggler
+            type='button'
+            className={`${menuOpen && "open"}`}
+            onClick={toggleMenu}
+          >
+            <span></span>
+            <span></span>
+          </MenuToggler>
+          <Nav className={`${menuOpen && "open"}`}>
+            {["stories", "features", "pricing"].map(link => (
+              <Link key={link} href={`/${link}`} passHref>
+                <NavLink>{link}</NavLink>
+              </Link>
+            ))}
+            <Divider />
+            <Link href='/' passHref>
+              <InviteLinkMobile>Get an invite</InviteLinkMobile>
             </Link>
-          ))}
-          <Divider />
+          </Nav>
           <Link href='/' passHref>
-            <InviteLinkMobile>Get an invite</InviteLinkMobile>
+            <InviteLinkDesktop>Get an invite</InviteLinkDesktop>
           </Link>
-        </Nav>
-        <Link href='/' passHref>
-          <InviteLinkDesktop>Get an invite</InviteLinkDesktop>
-        </Link>
+        </Content>
       </Container>
     </>
   );
@@ -61,17 +63,20 @@ const Overflow = styled.div`
 
 const Container = styled.header`
   height: 7.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-  max-width: 1300px;
-  margin: auto;
+  padding: 0 calc((100vw - 1300px) / 2);
   position: fixed;
   z-index: 100;
   width: 100%;
   top: 0;
   background: ${props => props.theme.colors.white};
+`;
+
+const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0 24px;
 `;
 
 const Logo = styled.img`
