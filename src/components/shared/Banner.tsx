@@ -37,6 +37,7 @@ export default function Banner({
         />
       </ImageContainer>
       <TextArea className={`${hero && "hero"}`}>
+        {hero && <ColorfullLine />}
         {hero ? <Title>{title}</Title> : <SubTitle>{title}</SubTitle>}
         <Description>{description}</Description>
         {link &&
@@ -103,6 +104,32 @@ const Container = styled.section`
   }
 `;
 
+const ColorfullLine = styled.div`
+  position: absolute;
+  height: 6px;
+  width: 36%;
+  left: 24px;
+  top: 0;
+  background: linear-gradient(
+    26.57deg,
+    #ffc593 0%,
+    #bc7198 43.29%,
+    #5a77ff 83.33%
+  );
+
+  @media (min-width: 768px) {
+    height: 200px;
+    width: 6px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  @media (min-width: 950px) {
+    height: 304px;
+  }
+`;
+
 const ImageContainer = styled.div`
   position: relative;
 `;
@@ -115,6 +142,7 @@ const TextArea = styled.div`
   color: ${props => props.theme.colors.black};
   background: ${props => props.theme.colors.white};
   min-height: 41.9rem;
+  position: relative;
 
   @media (min-width: 950px) {
     min-width: 49.5rem;
