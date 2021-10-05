@@ -32,6 +32,8 @@ export default function Banner({
           src={image}
           layout='fill'
           alt={title}
+          blurDataURL={`data:${image}`}
+          placeholder='blur'
         />
       </ImageContainer>
       <TextArea className={`${hero && "hero"}`}>
