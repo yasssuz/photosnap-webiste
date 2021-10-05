@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import Navbar from "../components/shared/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -15,10 +15,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     html {
       font-size: 62.5%;
 
+      body {
+        background: #000;
+      }
+
       body, select, input, button {
         font-family: 'DM Sans', sans-serif;
       }
     }
+  `;
+
+  const Divider = styled.div`
+    height: 7.1rem;
   `;
 
   const theme: object = {
@@ -34,6 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Navbar />
+        <Divider />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
