@@ -4,22 +4,22 @@ import Link from "next/link";
 
 interface BannerProps {
   position: "right" | "left";
-  height: number;
   title: string;
   description: string;
   link?: "story" | "invite";
   hero?: boolean;
   image: string;
+  blur: string | undefined;
 }
 
 export default function Banner({
   position,
-  height,
   title,
   description,
   link,
   hero,
   image,
+  blur,
 }: BannerProps) {
   const isLeft = position === "left" ? true : false;
 
@@ -32,7 +32,7 @@ export default function Banner({
           src={image}
           layout='fill'
           alt={title}
-          blurDataURL={`data:${image}`}
+          blurDataURL={blur}
           placeholder='blur'
         />
       </ImageContainer>
@@ -215,6 +215,13 @@ const CustomLink = styled.span`
   line-height: 1.7rem;
   text-transform: uppercase;
   letter-spacing: 0.25rem;
+  cursor: pointer;
+
+  &:hover {
+    img {
+      margin-left: 8rem;
+    }
+  }
 
   @media (min-width: 950px) {
     width: 100%;
@@ -224,6 +231,7 @@ const CustomLink = styled.span`
   }
 
   img {
+    transition: margin-left 0.3s ease;
     margin-left: 1.8rem;
   }
 `;
