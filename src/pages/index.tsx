@@ -12,6 +12,7 @@ import theMountains from "../../public/assets/stories/desktop/mountains.jpg";
 import cityEscapes from "../../public/assets/stories/desktop/cityscapes.jpg";
 import daysVoyage from "../../public/assets/stories/desktop/18-days-voyage.jpg";
 import architecturals from "../../public/assets/stories/desktop/architecturals.jpg";
+import Features from "../components/shared/Features";
 
 const Home: NextPage = () => {
   return (
@@ -95,6 +96,8 @@ const Home: NextPage = () => {
           />
         ))}
       </StoriesList>
+
+      <Features complete={false} />
     </main>
   );
 };
