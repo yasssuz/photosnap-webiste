@@ -20,31 +20,49 @@ const Home: NextPage = () => {
         <title>Photosnap | Home</title>
       </Head>
 
-      <Banner
-        position='left'
-        title='Create and share your photo stories. '
-        description='Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.'
-        hero={true}
-        image={createAndShare.src}
-        blur={createAndShare.blurDataURL}
-        link='invite'
-      />
-      <Banner
-        position='right'
-        title='BEAUTIFUL STORIES EVERY TIME'
-        description='We provide design templates to ensure your stories look terrific. Easily add photos, text, embed maps and media from other networks. Then share your story with everyone.'
-        image={beautifulStories.src}
-        blur={beautifulStories.blurDataURL}
-        link='story'
-      />
-      <Banner
-        position='left'
-        title='DESIGNED FOR EVERYONE'
-        description='Photosnap can help you create stories that resonate with your audience.  Our tool is designed for photographers of all levels, brands, businesses you name it.'
-        image={designedEveryone.src}
-        blur={designedEveryone.blurDataURL}
-        link='story'
-      />
+      {[
+        {
+          position: "left",
+          title: "Create and share your photo stories. ",
+          description:
+            "Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.",
+          hero: true,
+          image: createAndShare.src,
+          blur: createAndShare.blurDataURL,
+          link: "invite",
+        },
+        {
+          position: "right",
+          title: "BEAUTIFUL STORIES EVERY TIME",
+          description:
+            "We provide design templates to ensure your stories look terrific. Easily add photos, text, embed maps and media from other networks. Then share your story with everyone.",
+          hero: false,
+          image: beautifulStories.src,
+          blur: beautifulStories.blurDataURL,
+          link: "story",
+        },
+        {
+          position: "left",
+          title: "DESIGNED FOR EVERYONE",
+          description:
+            "Photosnap can help you create stories that resonate with your audience.  Our tool is designed for photographers of all levels, brands, businesses you name it.",
+          hero: false,
+          image: designedEveryone.src,
+          blur: designedEveryone.blurDataURL,
+          link: "story",
+        },
+      ].map(data => (
+        <Banner
+          key={data.image}
+          position={data.position}
+          title={data.title}
+          description={data.description}
+          hero={data.hero}
+          image={data.image}
+          blur={data.blur}
+          link={data.link}
+        />
+      ))}
 
       <StoriesList>
         {[
