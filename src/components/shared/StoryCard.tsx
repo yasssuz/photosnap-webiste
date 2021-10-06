@@ -68,6 +68,7 @@ const Content = styled.a`
 
   &:hover {
     transform: translateY(-8%);
+    z-index: 90;
 
     img {
       margin-left: 9rem;
@@ -84,6 +85,10 @@ const Content = styled.a`
     .customBorder_xtabu23 {
       height: 6px;
     }
+  }
+
+  @media (min-width: 768px) {
+    height: 50em;
   }
 `;
 
