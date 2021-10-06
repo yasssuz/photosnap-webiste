@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface BannerProps {
-  position: "right" | "left";
+  position: "right" | "left" | string;
   title: string;
   description: string;
-  link?: "story" | "invite";
+  link?: "story" | "invite" | string;
   hero?: boolean;
   image: string;
   blur: string | undefined;
