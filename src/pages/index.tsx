@@ -4,15 +4,15 @@ import Head from "next/head";
 
 import Banner from "../components/shared/Banner";
 import StoryCard from "../components/shared/StoryCard";
+import Features from "../components/shared/Features";
 
 import createAndShare from "../../public/assets/home/desktop/create-and-share.jpg";
 import beautifulStories from "../../public/assets/home/desktop/beautiful-stories.jpg";
 import designedEveryone from "../../public/assets/home/desktop/designed-for-everyone.jpg";
-import theMountains from "../../public/assets/stories/desktop/mountains.jpg";
-import cityEscapes from "../../public/assets/stories/desktop/cityscapes.jpg";
-import daysVoyage from "../../public/assets/stories/desktop/18-days-voyage.jpg";
-import architecturals from "../../public/assets/stories/desktop/architecturals.jpg";
-import Features from "../components/shared/Features";
+import theMountains from "../../public/assets/stories/mountains.jpg";
+import cityEscapes from "../../public/assets/stories/cityscapes.jpg";
+import daysVoyage from "../../public/assets/stories/18-days-voyage.jpg";
+import architecturals from "../../public/assets/stories/architecturals.jpg";
 
 const Home: NextPage = () => {
   return (
@@ -70,22 +70,22 @@ const Home: NextPage = () => {
           {
             image: theMountains,
             title: "The Mountains",
-            author: "by John Appleseed",
+            author: "John Appleseed",
           },
           {
             image: cityEscapes,
             title: "Sunset Cityscapes",
-            author: "by Benjamin Cruz",
+            author: "Benjamin Cruz",
           },
           {
             image: daysVoyage,
             title: "18 Days Voyage",
-            author: "by Alexei Borodin",
+            author: "Alexei Borodin",
           },
           {
             image: architecturals,
             title: "Architecturals",
-            author: "by Samantha Brooke",
+            author: "Samantha Brooke",
           },
         ].map(data => (
           <StoryCard
