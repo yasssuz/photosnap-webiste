@@ -27,7 +27,7 @@ export default function StoryCard({ image, title, author }: StoryCardProps) {
             quality={100}
           />
           <Title>{title}</Title>
-          <Author>{author}</Author>
+          <Author className='author'>by {author}</Author>
           <Divider />
           <CustomLink>
             read story
@@ -100,12 +100,13 @@ const Title = styled.strong`
   line-height: 139%;
 `;
 
-const Author = styled.span`
+const Author = styled.address`
   z-index: 10;
   position: relative;
   font-size: 1.4rem;
   line-height: 1.7rem;
   margin-top: 0.4rem;
+  font-style: normal;
 `;
 
 const Divider = styled.hr`
