@@ -3,7 +3,28 @@ import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import Navbar from "../components/shared/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const GlobalStyles = createGlobalStyle`
+  const theme: object = {
+    colors: {
+      black: "#000000",
+      white: "#ffffff",
+      gray: "#DFDFDF",
+    },
+  };
+
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Navbar />
+        <Divider />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
+  );
+}
+export default MyApp;
+
+const GlobalStyles = createGlobalStyle`
     *,
     *::before,
     *::after {
@@ -25,27 +46,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   `;
 
-  const Divider = styled.div`
-    height: 7.1rem;
-  `;
-
-  const theme: object = {
-    colors: {
-      black: "#000000",
-      white: "#ffffff",
-      gray: "#DFDFDF",
-    },
-  };
-
-  return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <Navbar />
-        <Divider />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
-  );
-}
-export default MyApp;
+const Divider = styled.div`
+  height: 7.1rem;
+`;
