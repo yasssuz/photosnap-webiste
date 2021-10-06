@@ -135,7 +135,7 @@ const ImageContainer = styled.div`
 `;
 
 const TextArea = styled.div`
-  padding: 0 24px;
+  padding: 0 29px;
   display: flex;
   justify-content: center;
   flex-direction: column;
