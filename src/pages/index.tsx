@@ -83,4 +83,15 @@ const Home: NextPage = () => {
 
 export default Home;
 
-const StoriesList = styled.ul``;
+const StoriesList = styled.ul`
+  list-style: none;
+  display: grid;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+`;
