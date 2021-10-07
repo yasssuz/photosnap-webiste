@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
-import Navbar from "../components/shared/Navbar";
+import Footer from "../components/app/Footer";
+import Navbar from "../components/app/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const theme: object = {
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Navbar />
         <Divider />
         <Component {...pageProps} />
+        <Footer />
       </ThemeProvider>
     </>
   );
