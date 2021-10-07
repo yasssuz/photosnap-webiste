@@ -35,7 +35,8 @@ const Container = styled.section`
 `;
 
 const ImageArea = styled.div`
-  background: url("/assets/stories/moon-of-appalacia.jpg") no-repeat;
+  background: url("/assets/stories/moon-of-appalacia.jpg") no-repeat center
+    center;
   background-size: cover;
   background-attachment: fixed;
 `;
