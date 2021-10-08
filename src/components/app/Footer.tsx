@@ -143,6 +143,18 @@ const Container = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 6.4rem 3.9rem;
+  }
+
+  @media (min-width: 950px) {
+    grid-template-columns: 1fr 9fr;
+    text-align: left;
+    padding: 6.5rem 8rem;
+  }
 `;
 
 const SocialsList = styled.ul`
@@ -150,6 +162,13 @@ const SocialsList = styled.ul`
   align-items: center;
   justify-content: center;
   margin: 3.2rem 0 4.9rem;
+
+  @media (min-width: 768px) {
+    grid-column: 1 /2;
+    grid-row: 3 /4;
+    margin: 0;
+    justify-content: flex-start;
+  }
 
   li {
     cursor: pointer;
@@ -224,6 +243,19 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   margin-bottom: 12rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    margin: 3.2rem 0 7.2rem;
+    grid-column: 1 /2;
+    grid-row: 2 /3;
+  }
+
+  @media (min-width: 950px) {
+    grid-column: 2 /3;
+    margin: 0 0 0 10.9rem;
+    flex-direction: column;
+  }
 `;
 
 const NavLink = styled.a`
@@ -236,6 +268,14 @@ const NavLink = styled.a`
 
   & + & {
     margin-top: 1.9rem;
+
+    @media (min-width: 768px) {
+      margin: 0 0 0 2.6rem;
+    }
+
+    @media (min-width: 768px) {
+      margin: 1.9rem 0 0 0;
+    }
   }
 `;
 
@@ -254,6 +294,11 @@ const CustomLink = styled.span`
     margin-left: 9rem;
   }
 
+  @media (min-width: 768px) {
+    margin: 0;
+    justify-self: end;
+  }
+
   img {
     margin-left: 2rem;
     transition: margin-left 0.3s ease-in-out;
@@ -265,4 +310,10 @@ const Copyright = styled.small`
   line-height: 20px;
   opacity: 0.5;
   color: ${props => props.theme.colors.white};
+
+  @media (min-width: 768px) {
+    grid-column: 2 /3;
+    grid-row: 3 /4;
+    justify-self: end;
+  }
 `;
