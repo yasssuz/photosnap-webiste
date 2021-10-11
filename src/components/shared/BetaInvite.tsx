@@ -7,6 +7,7 @@ import BgImage from "../../../public/assets/shared/bg-beta.jpg";
 export default function BetaInvite() {
   return (
     <Container>
+      <ColorfullLine />
       <ImageWrapper>
         <Image
           src={BgImage}
@@ -41,6 +42,26 @@ const Container = styled.section`
   @media (min-width: 768px) {
     height: 28rem;
     padding: 0 40px;
+  }
+`;
+
+const ColorfullLine = styled.div`
+  position: absolute;
+  height: 6px;
+  width: 36%;
+  left: 24px;
+  top: 0;
+  background: linear-gradient(
+    26.57deg,
+    #ffc593 0%,
+    #bc7198 43.29%,
+    #5a77ff 83.33%
+  );
+
+  @media (min-width: 768px) {
+    height: 100%;
+    width: 6px;
+    left: 0;
   }
 `;
 
