@@ -273,8 +273,8 @@ const NavLink = styled.a`
       margin: 0 0 0 2.6rem;
     }
 
-    @media (min-width: 768px) {
-      margin: 1.9rem 0 0 0;
+    @media (min-width: 950px) {
+      margin: 1.9rem 0 0 0 !important;
     }
   }
 `;
