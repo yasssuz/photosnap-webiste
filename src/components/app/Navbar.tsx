@@ -14,7 +14,11 @@ export default function Navbar() {
       <Overflow className={`${menuOpen && "open"}`} />
       <Container>
         <Content>
-          <Logo src='/assets/shared/logo.svg' alt='Photosnap' />
+          <Link href='/'>
+            <a style={{ height: 16 }}>
+              <Logo src='/assets/shared/logo.svg' alt='Photosnap' />
+            </a>
+          </Link>
           <MenuToggler
             type='button'
             className={`${menuOpen && "open"}`}
