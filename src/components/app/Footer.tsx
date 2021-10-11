@@ -123,7 +123,7 @@ export default function Footer() {
       </SocialsList>
       <Nav>
         {["home", "stories", "features", "pricing"].map(link => (
-          <Link key={link} href={link === "home" ? "/" : link} passHref>
+          <Link key={link} href={link === "home" ? "/" : `/${link}`} passHref>
             <NavLink>{link}</NavLink>
           </Link>
         ))}
