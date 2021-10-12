@@ -23,8 +23,10 @@ export default function PricingCard({ data, yearly }: PricingCardProps) {
       {mainCard && <ColorfullLine />}
       <Title>{title}</Title>
       <Description>{description}</Description>
-      <Price>{`$${formattedPrice}`}</Price>
-      <PaidPer>per {yearly ? "year" : "month"}</PaidPer>
+      <PriceWrapper>
+        <Price>{`$${formattedPrice}`}</Price>
+        <PaidPer>per {yearly ? "year" : "month"}</PaidPer>
+      </PriceWrapper>
       <Link href='/pricing' passHref>
         <PickBtn>Pick Plan</PickBtn>
       </Link>
@@ -47,6 +49,31 @@ const Container = styled.li`
     a {
       background: ${props => props.theme.colors.white};
       color: ${props => props.theme.colors.black};
+    }
+
+    @media (min-width: 950px) {
+      height: 47rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    padding: 4rem 4.8rem 4rem 4rem;
+  }
+
+  @media (min-width: 950px) {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 35rem;
+    justify-content: center;
+    margin-top: 0;
+
+    & + & {
+      margin-left: 3rem;
+      padding: 5.6rem 4rem 4rem;
     }
   }
 `;
@@ -75,14 +102,31 @@ const Description = styled.p`
   font-size: 1.5rem;
   line-height: 167%;
   opacity: 0.6;
+
+  @media (min-width: 768px) {
+    grid-column: 1 /2;
+  }
+`;
+
+const PriceWrapper = styled.div`
+  margin: 4rem 0;
+
+  @media (min-width: 768px) {
+    grid-row: 1 /3;
+    grid-column: 2 /3;
+    margin: 0;
+    justify-self: end;
+  }
+
+  @media (min-width: 950px) {
+    margin: 4rem 0;
+  }
 `;
 
 const Price = styled.strong`
   font-size: 4rem;
   line-height: 120%;
   letter-spacing: 0.41rem;
-  margin-top: 4rem;
-  display: inline-block;
 `;
 
 const PaidPer = styled.small`
@@ -90,7 +134,6 @@ const PaidPer = styled.small`
   font-size: 1.5rem;
   line-height: 167%;
   opacity: 0.6;
-  margin-bottom: 4rem;
 `;
 
 const PickBtn = styled.a`
@@ -98,7 +141,7 @@ const PickBtn = styled.a`
   display: block;
   color: ${props => props.theme.colors.white};
   text-decoration: none;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1.6rem;
   letter-spacing: 0.2rem;
   font-weight: bold;
@@ -109,5 +152,16 @@ const PickBtn = styled.a`
   &:focus {
     background: ${props => props.theme.colors.gray} !important;
     color: ${props => props.theme.colors.black};
+  }
+
+  @media (min-width: 768px) {
+    grid-row: 3 /4;
+    grid-column: 1 /2;
+    margin: 3.2rem 0 0;
+    text-align: center;
+  }
+
+  @media (min-width: 950px) {
+    margin: 0;
   }
 `;

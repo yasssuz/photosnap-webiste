@@ -88,6 +88,7 @@ const Switcher = styled.button`
   border-radius: 1.6rem;
   border: none;
   position: relative;
+  cursor: pointer;
 
   &.yearly::before {
     left: 36px;
@@ -111,4 +112,11 @@ const Switcher = styled.button`
 const List = styled.ul`
   list-style: none;
   margin-top: 1.6rem;
+
+  @media (min-width: 950px) {
+    display: flex;
+    align-items: center;
+    margin: 4.8rem 0;
+    justify-content: center;
+  }
 `;
