@@ -5,6 +5,7 @@ import BetaInvite from "../components/shared/BetaInvite";
 import PricingList from "../components/pricing/PricingList";
 
 import HeroImage from "../../public/assets/pricing/hero.jpg";
+import CompareTable from "../components/pricing/CompareTable";
 
 const Pricing: NextPage = () => {
   return (
@@ -19,6 +20,8 @@ const Pricing: NextPage = () => {
       />
 
       <PricingList />
+
+      <CompareTable />
 
       <BetaInvite />
     </main>
