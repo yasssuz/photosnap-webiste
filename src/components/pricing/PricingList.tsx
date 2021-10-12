@@ -47,7 +47,15 @@ export default function PricingList() {
 
 const Container = styled.section`
   background: ${props => props.theme.colors.white};
-  padding: 6.4rem 29px;
+  padding: 6.4rem 29px 0;
+
+  @media (min-width: 768px) {
+    padding: 11.2rem 40px 0;
+  }
+
+  @media (min-width: 768px) {
+    padding: 12rem 40px 0;
+  }
 `;
 
 const SwitcherWrapper = styled.div`
@@ -116,7 +124,7 @@ const List = styled.ul`
   @media (min-width: 950px) {
     display: flex;
     align-items: center;
-    margin: 4.8rem 0;
+    margin: 4.8rem 0 0;
     justify-content: center;
   }
 `;
