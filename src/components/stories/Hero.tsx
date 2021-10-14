@@ -1,30 +1,53 @@
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
+import HeroImage from "../../../public/assets/stories/moon-of-appalacia.jpg";
 
 export default function Hero() {
   return (
     <Container>
-      <ImageArea />
-      <TextArea>
-        <Featured>LAST MONTH’S FEATURED STORY</Featured>
-        <Title>HAZY FULL MOON OF APPALACHIA</Title>
-        <div>
-          <Published>March 2nd 2020</Published>
-          <Author className='author'>by John Appleseed</Author>
-        </div>
-        <Description>
-          The dissected plateau area, while not actually made up of geological
-          mountains, is popularly called &quot;mountains&quot;, especially in
-          eastern Kentucky and West Virginia, and while the ridges are not high,
-          the terrain is extremely rugged.
-        </Description>
-        <Link href='/stories' passHref>
-          <CustomLink>
-            Read the story
-            <img src='/assets/shared/arrow-white.svg' alt='arrow' />
-          </CustomLink>
-        </Link>
-      </TextArea>
+      <MobileImageDesktop>
+        <Image
+          src={HeroImage}
+          layout='fill'
+          objectFit='cover'
+          placeholder='blur'
+          alt='background'
+          quality={100}
+        />
+      </MobileImageDesktop>
+      <div style={{ position: "relative" }}>
+        <HeroImageDesktop>
+          <Image
+            src={HeroImage}
+            layout='fill'
+            objectFit='cover'
+            placeholder='blur'
+            alt='background'
+            quality={100}
+          />
+        </HeroImageDesktop>
+        <TextArea>
+          <Featured>LAST MONTH’S FEATURED STORY</Featured>
+          <Title>HAZY FULL MOON OF APPALACHIA</Title>
+          <div>
+            <Published>March 2nd 2020</Published>
+            <Author className='author'>by John Appleseed</Author>
+          </div>
+          <Description>
+            The dissected plateau area, while not actually made up of geological
+            mountains, is popularly called &quot;mountains&quot;, especially in
+            eastern Kentucky and West Virginia, and while the ridges are not
+            high, the terrain is extremely rugged.
+          </Description>
+          <Link href='/stories' passHref>
+            <CustomLink>
+              Read the story
+              <img src='/assets/shared/arrow-white.svg' alt='arrow' />
+            </CustomLink>
+          </Link>
+        </TextArea>
+      </div>
     </Container>
   );
 }
@@ -32,13 +55,23 @@ export default function Hero() {
 const Container = styled.section`
   display: grid;
   grid-template-rows: 31.7rem 49.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-rows: 0 65rem;
+  }
 `;
 
-const ImageArea = styled.div`
-  background: url("/assets/stories/moon-of-appalacia.jpg") no-repeat center
-    center;
-  background-size: cover;
-  background-attachment: fixed;
+const MobileImageDesktop = styled.div`
+  position: relative;
+`;
+
+const HeroImageDesktop = styled.div`
+  display: none;
+  z-index: -1;
+
+  @media (min-width: 768px) {
+    display: unset;
+  }
 `;
 
 const TextArea = styled.div`
@@ -47,6 +80,14 @@ const TextArea = styled.div`
   flex-direction: column;
   justify-content: center;
   color: ${props => props.theme.colors.white};
+  position: relative;
+  max-width: 1600px;
+  margin: auto;
+  height: 100%;
+
+  @media (min-width: 768px) {
+    padding: 0 40px;
+  }
 `;
 
 const Featured = styled.span`
@@ -65,13 +106,12 @@ const Title = styled.h1`
   margin-bottom: 1.6rem;
 
   @media (min-width: 768px) {
+    max-width: 10ch;
     font-size: 4rem;
     letter-spacing: 0.41rem;
   }
 
   @media (min-width: 950px) {
-    max-width: 15ch;
-    margin: 0 auto;
     font-size: 4.5rem;
   }
 `;
@@ -96,11 +136,12 @@ const Description = styled.p`
   margin: 1.6rem 0 2.3rem;
 
   @media (min-width: 768px) {
-    margin: 2.1rem auto 4.8rem;
+    max-width: 38ch;
+    margin: 2.4rem 0;
+    font-size: 1.6rem;
   }
 
   @media (min-width: 950px) {
-    max-width: 40ch;
     font-size: 1.7rem;
   }
 `;
@@ -118,13 +159,6 @@ const CustomLink = styled.span`
     img {
       margin-left: 8rem;
     }
-  }
-
-  @media (min-width: 950px) {
-    width: 100%;
-    max-width: 47.5rem;
-    margin: 0 auto;
-    text-align: left;
   }
 
   img {
