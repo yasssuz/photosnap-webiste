@@ -6,10 +6,15 @@ import PricingList from "../components/pricing/PricingList";
 
 import HeroImage from "../../public/assets/pricing/hero.jpg";
 import CompareTable from "../components/pricing/CompareTable";
+import Head from "next/head";
 
 const Pricing: NextPage = () => {
   return (
     <main>
+      <Head>
+        <title>Photosnap | Pricing</title>
+      </Head>
+
       <Banner
         image={HeroImage.src}
         blur={HeroImage.blurDataURL}

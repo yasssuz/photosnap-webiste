@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import styled from "styled-components";
+import Head from "next/head";
 
 import Hero from "../components/stories/Hero";
 import StoryCard from "../components/shared/StoryCard";
@@ -24,6 +25,10 @@ import landOfDreams from "../../public/assets/stories/land-of-dreams.jpg";
 const Stories: NextPage = () => {
   return (
     <main>
+      <Head>
+        <title>Photosnap | Stories</title>
+      </Head>
+
       <Hero />
 
       <StoriesList>

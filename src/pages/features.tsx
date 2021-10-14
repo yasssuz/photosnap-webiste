@@ -3,10 +3,15 @@ import Banner from "../components/shared/Banner";
 import Photographer from "../../public/assets/features/hero.jpg";
 import FeaturesList from "../components/shared/Features";
 import BetaInvite from "../components/shared/BetaInvite";
+import Head from "next/head";
 
 const Features: NextPage = () => {
   return (
     <main>
+      <Head>
+        <title>Photosnap | Features</title>
+      </Head>
+
       <Banner
         position='left'
         title='FEATURES'
