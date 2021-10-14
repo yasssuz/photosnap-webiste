@@ -44,14 +44,18 @@ export default function CompareTable() {
             <DisWrapper>
               <Dis>
                 <span>basic</span>
-                {feature.featureDis === 3 && (
+                {feature.featureDis === 3 ? (
                   <img src='/assets/pricing/check.svg' alt='checked' />
+                ) : (
+                  <div style={{ width: 18, height: 15 }} />
                 )}
               </Dis>
               <Dis>
                 <span>pro</span>
-                {feature.featureDis >= 2 && (
+                {feature.featureDis >= 2 ? (
                   <img src='/assets/pricing/check.svg' alt='checked' />
+                ) : (
+                  <div style={{ width: 18, height: 15 }} />
                 )}
               </Dis>
               <Dis>
@@ -72,6 +76,10 @@ const Container = styled.section`
   background: ${props => props.theme.colors.white};
   color: ${props => props.theme.colors.black};
   padding: 6.4rem 29px;
+
+  @media (min-width: 768px) {
+    padding: 6.4rem 40px;
+  }
 `;
 
 const Title = styled.h2`
@@ -94,6 +102,11 @@ const FeatureItem = styled.li`
   display: block;
   border-bottom: 1px solid ${props => props.theme.colors.gray};
   padding-bottom: 2.4rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 const FeatureTitle = styled.h3`
@@ -103,6 +116,11 @@ const FeatureTitle = styled.h3`
   letter-spacing: 0.2rem;
   text-transform: uppercase;
   margin-bottom: 1.6rem;
+
+  @media (min-width: 768px) {
+    margin: 0 0 0 15px;
+    width: 349px;
+  }
 `;
 
 const DisWrapper = styled.ul`
@@ -112,6 +130,15 @@ const DisWrapper = styled.ul`
 `;
 
 const Dis = styled.li`
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: flex-end;
+
+    & + & {
+      width: 140px;
+    }
+  }
+
   span {
     text-transform: uppercase;
     font-size: 1.3rem;
@@ -120,5 +147,9 @@ const Dis = styled.li`
     opacity: 0.5;
     display: block;
     margin-bottom: 0.8rem;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
   }
 `;
